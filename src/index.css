@@ -1,0 +1,228 @@
+/* ======= Global Theme ======= */
+:root {
+  --bg: #f3f5f9;
+  --bg-gradient: linear-gradient(135deg, #0a2149 0%, #0b5cff 100%);
+  --card-bg: #ffffffcc;
+  --accent: #fbbf24; /* warm gold */
+  --accent-hover: #facc15;
+  --text-dark: #0d1117;
+  --text-light: #ffffff;
+  --muted: #6b7280;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+
+/* ======= Layout ======= */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeIn 0.5s ease;
+}
+
+/* ======= Header ======= */
+header {
+  background: var(--bg-gradient);
+  color: var(--text-light);
+  padding: 32px 24px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+header .subtitle {
+  margin-top: 8px;
+  color: #dbeafe;
+  font-size: 0.95rem;
+}
+
+/* ======= Controls (Search + Filter) ======= */
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.search,
+.select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.search:focus,
+.select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+  outline: none;
+}
+
+.search {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ======= Stats Section ======= */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 24px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.stat {
+  flex: 1 1 160px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.stat-title {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 6px;
+}
+
+.breakdown ul {
+  margin: 8px 0 0 0;
+  padding-left: 16px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ======= Table ======= */
+.breweries {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: var(--shadow);
+  margin: 0 auto;
+}
+
+.breweries thead {
+  background: #f1f5f9;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.breweries th,
+.breweries td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.breweries tr:hover {
+  background-color: #f9fafb;
+}
+
+.brewery-row .name strong {
+  color: var(--accent);
+}
+
+.brewery-row .small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+/* ======= Info + Error ======= */
+.info,
+.error {
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 12px 24px;
+  font-weight: 500;
+}
+
+.info {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1e3a8a;
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+}
+
+/* ======= Footer ======= */
+footer {
+  text-align: center;
+  padding: 18px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: #f8fafc;
+}
+
+/* ======= Animation ======= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 640px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search {
+    max-width: 100%;
+  }
+  .stats {
+    flex-direction: column;
+  }
+}
